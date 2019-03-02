@@ -1,7 +1,7 @@
 {
-    "name": "robopeterson",
+    "name": "adam",
     "version": "1.0.0",
-    "description": "Jordan Peterson chatbot",
+    "description": "Chatbot skeleton.",
     "main": "index.js",
     "scripts": {
         "start": "node index.js",

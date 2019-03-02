@@ -1,4 +1,4 @@
-// chatbot/dialogflowHelpers.js
+// adam/dialogflowHelpers.js
 // Helper functions to parse Dialogflow objects
 
 // import shiz

@@ -1,4 +1,4 @@
-// chatbot/database.js
+// adam/database.js
 // Access and manage MongoDB
 
 // Base object for Mongo functionality

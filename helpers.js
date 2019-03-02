@@ -1,4 +1,4 @@
-// chatbot/helpers.js
+// adam/helpers.js
 
 var User = require('./models/user')
 

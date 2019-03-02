@@ -1,4 +1,4 @@
-// chatbot/twilio.js
+// adam/twilio.js
 // Twilio API handler
 
 // Error handling
@@ -12,15 +12,15 @@ var schedule = require('node-schedule')
 // Models
 var User = require('./models/user')
 var Message = require('./models/message')
-// Chatbot's phone number
-var chatbotNumber = process.env.CHATBOT_NUMBER
+// Adam's phone number
+var adamNumber = process.env.ADAM_NUMBER
 // Initialize the Twilio client object with our Twilio credentials
 var twilioClient = require('twilio')(
     process.env.TWILIO_ACCOUNT_SID,
     process.env.TWILIO_AUTH_TOKEN
 )
 
-// Send messageContent to userNumber from chatbotNumber
+// Send messageContent to userNumber from adamNumber
 function sendSMS (userNumber, dialogflowMessages) {
     var sessionId = userNumber.substring(1)
     var messageContent
@@ -29,7 +29,7 @@ function sendSMS (userNumber, dialogflowMessages) {
         if (messageContent) {
             var messageBlob = {
                 to: userNumber,
-                from: chatbotNumber,
+                from: adamNumber,
                 body: messageContent
             }
             console.log(messageBlob)
@@ -43,7 +43,7 @@ function sendSMS (userNumber, dialogflowMessages) {
                     setTimeout(sendSMS, config.messageDelay, userNumber, dialogflowMessages)
                 })
                 .catch(function (reason) {
-                    console.log('Promise rejected while sending text from Chatbot')
+                    console.log('Promise rejected while sending text from Adam')
                     console.log(reason)
                     console.error(reason)
                 })
@@ -119,7 +119,7 @@ function processUserSMS (user, phone, message) {
         } else {
             // Process request normally
             console.log("It's an existing user")
-            // Make sure Chatbot is unpaused for this user
+            // Make sure Adam is unpaused for this user
             User.findOneAndUpdate(
                 {
                     _id: user._id
@@ -136,9 +136,9 @@ function processUserSMS (user, phone, message) {
     })
 }
 
-// Expose Chatbot's phone number and the ability to send SMS to users
+// Expose Adam's phone number and the ability to send SMS to users
 module.exports = {
     sendSMS: sendSMS,
-    chatbotNumber: chatbotNumber,
+    adamNumber: adamNumber,
     processUserSMS: processUserSMS
 }

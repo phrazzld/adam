@@ -1,5 +1,5 @@
-// chatbot/cron.js
-// Everything chatbot needs to initiate conversations with users
+// adam/cron.js
+// Everything Adam needs to initiate conversations with users
 
 // node-schedule makes cronjobs possible
 var schedule = require('node-schedule')
